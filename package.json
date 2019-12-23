@@ -1,0 +1,16 @@
+{
+  "name": "binnifront",
+  "version": "0.0.5",
+  "description": "Frontend starter pack para crear aplicaciones ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "goshmx",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-serve": "^1.4.0"
+  }
+}
