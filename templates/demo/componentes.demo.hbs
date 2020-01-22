@@ -1,0 +1,172 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Componentes</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="#demo/">Demo</a></li>
+                    <li class="breadcrumb-item">Componentes</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Listado de componentes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Validaciones Parsley</h5>
+                                <form id="form-new-rol" class="form-submit set-url-config" url-index="api" attr-target="action" role="form" action="test" method="post" fn-success="myApp.routes.navigate('#demo/componentes');">
+                                    <div class="form-group">
+                                        <label for="clave_form">Test requerido</label>
+                                        <input type="text" class="form-control" placeholder="Requerido" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="clave_form">Regex</label>
+                                        <input type="text" class="form-control" placeholder="Requerido Regex" data-parsley-pattern="^[a-zA-Z]{4}[ -]?[a-zA-Z]{4}[ -]?[a-zA-Z]{4}[ -]?[a-zA-Z]{4}$" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="clave_form">Mensaje personalizado</label>
+                                        <input type="text" class="form-control" placeholder="Requerido Regex" required data-parsley-error-message="Mensaje de error personalizado">
+                                    </div>
+                                    <hr/>
+                                    <p align="right">
+                                        <button class="btn btn-primary">Probar</button>
+                                    </p>
+                                </form>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Fecha / Hora</h5>
+                                <div class="form-group">
+                                    <label for="clave_form">Date Picker</label>
+                                    <input type="text" class="datepicker form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clave_form">Datetime Picker</label>
+                                    <input type="text" class="datetimepicker form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clave_form">Time Picker</label>
+                                    <input type="text" class="timepicker form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clave_form">Date Range Picker</label>
+                                    <input type="text" class="daterangepickr form-control"/>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Selects</h5>
+                                <div class="form-group">
+                                    <label for="clave_form">Ejemplo de combo</label>
+                                    <select class="select-load form-control" url="./dist/json/demo.json" val="email" key="id" index="data"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clave_form">Ejemplo de combo seleccionado</label>
+                                    <select class="select-load form-control" default="true" seleccionadokey="id" seleccionado="8" url="./dist/json/demo.json" val="email" key="id" index="data"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clave_form">Ejemplo de combo con callback</label>
+                                    <select class="select-load form-control" url="./dist/json/demo.json" val="email" key="id" index="data" fn-change="alert('El campo seleccionado es: '+$(this).val())"></select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Listado de componentes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Autocompletado</h5>
+                                <div class="form-group">
+                                    <label for="clave_form">Autocompletado</label>
+                                    <input type="text" name="autocompletado" class="typeahead form-control" url="./dist/json/demo.json" key="id" val="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clave_form">Autocompletado con valor ID por default</label>
+                                    <input type="text" name="autocompletado" class="typeahead form-control" default="10" url="./dist/json/demo.json" key="id" val="email"/>
+                                </div>
+                                <h5>Color Picker</h5>
+                                <div class="form-group">
+                                    <label for="clave_form">Selecciona color</label>
+                                    <input type="text" class="form-control color-picker">
+                                </div>
+                                <h5>Imprimir</h5>
+                                <div class="form-group">
+                                    <label for="clave_form">Imprimir contenedor</label>
+                                    <a href="#" class="btn btn-block btn-primary print-btn" title="DEMO IMPRESION" div-print=".wrapper">Imprimir</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Archivos</h5>
+                                <div class="form-group">
+                                    <label  class="file-input-title">Selecciona una imagen</label>
+                                    <p class="input-image-cont" align="center">
+                                        <img class="previewFile" src="./dist/img/filetypes/file.png" height="50"/>
+                                    <div class="input-group">
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                            Selecciona archivo <input accept="image/*" type="file" name="archivo'" class="file-preview" accept="" style="display: none;">
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control text-inputfilefield" readonly>
+                                    </div>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="file-input-title">Selecciona un PDF</label>
+                                    <p class="input-image-cont" align="center">
+                                        <img class="previewFile" src="./dist/img/filetypes/file.png" height="50"/>
+                                    <div class="input-group">
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                            Selecciona archivo <input accept=".pdf" type="file" name="archivo'" class="file-preview" accept="" style="display: none;">
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control text-inputfilefield" readonly>
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Multi Elements</h5>
+                                <label>Multi element simple</label>
+                                <div class="multi-input" url-tpl="templates/demo/multi-element.tpl.hbs"></div>
+                                <hr/>
+                                <label>Multi element avanzado</label>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Estado</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="multi-input" url-tpl="templates/demo/multi-element-avanzado.tpl.hbs" close-class=".cerrar-elemento"></tbody>
+                                    <tfoot><tr><td colspan="4" id="agregar-elemento"></td></tr></tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

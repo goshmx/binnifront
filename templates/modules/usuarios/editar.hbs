@@ -1,0 +1,57 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Editar usuario</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="#usuario/">Usuarios</a></li>
+                    <li class="breadcrumb-item">Editar</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Editar usuario {{data.fullName}}</h3>
+                    </div>
+                    <form id="form-new-rol" class="form-submit set-url-config" url-index="api" attr-target="action" role="form" action="users/{{data.id}}" method="PUT" fn-success="myApp.routes.navigate('#usuario/');">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="nombre_usuario">Nombre del usuario</label>
+                                <input value="{{data.fullName}}" type="text" class="form-control" name="fullName" id="nombre_usuario" placeholder="Nombre del usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email_usuario">Email del usuario</label>
+                                <input value="{{data.emailAddress}}" type="email" class="form-control" name="emailAddress" id="email_usuario" placeholder="Correo electrónico del usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_usuario">Contraseña</label>
+                                <input type="password" class="form-control" name="password" id="password_usuario" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rol">Rol del usuario</label>
+                                <select name="rol" id="rol" class="form-control" required>
+                                    {{#each roles}}
+                                        <option {{#ifeq ../data.rol.id id}}selected="selected"{{/ifeq}} value="{{id}}">{{nombre}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a href="#usuario/" class="btn btn-default">Regresar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

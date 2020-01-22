@@ -1,0 +1,56 @@
+<div class="login-box">
+    <div class="login-logo">
+        <a href="/"><img id="logo-alter" src="dist/img/logo-default-alter.png" alt=""/></a>
+    </div>
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Iniciar sesión</p>
+
+            <form id="form-login" class="form-submit" action="{{url_api.login}}" method="post" disable-alert="true" fn-success="window.location.reload();" fn-fail="$('#form-login-error').removeClass('hidden');setTimeout(function(){ $('#form-login-error').addClass('hidden'); }, 3000);">
+                <div id="form-login-error" class="alert alert-danger hidden">Usuario y/o contraseña incorrectos.</div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {{#if enable_rememberme}}
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">
+                                Recordarme
+                            </label>
+                        </div>
+                        {{/if}}
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                    </div>
+                </div>
+            </form>
+            {{#if enable_social_login}}
+            <div class="social-auth-links text-center mb-3">
+                <hr/>
+                <a href="#" class="btn btn-block btn-primary">
+                    <i class="fab fa-facebook mr-2"></i> Ingresar con Facebook
+                </a>
+                <a href="#" class="btn btn-block btn-danger">
+                    <i class="fab fa-google-plus mr-2"></i> Ingresar con Google+
+                </a>
+            </div>
+            {{/if}}
+            {{#if enable_register}}
+            <p class="mb-1">
+                <a href="#">Olvidé mi contraseña</a>
+            </p>
+            {{/if}}
+            {{#if enable_forgot_password}}
+            <p class="mb-0">
+                <a href="#" class="text-center">Registrarme</a>
+            </p>
+            {{/if}}
+        </div>
+    </div>
+</div>

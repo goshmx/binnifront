@@ -3,12 +3,12 @@
  * Copyright 2014-2019 Colorlib <http://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.adminlte = {}));
-}(this, (function (exports) { 'use strict';
-
+function alteInit(callback){
+    (function (global, factory) {
+        typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+            typeof define === 'function' && define.amd ? define(['exports'], factory) :
+                (global = global || self, factory(global.adminlte = {}));
+    }(this, (function (exports) { 'use strict';
   /**
    * --------------------------------------------
    * AdminLTE ControlSidebar.js
@@ -276,8 +276,9 @@
       $.fn[NAME] = JQUERY_NO_CONFLICT;
       return ControlSidebar._jQueryInterface;
     };
-
+      //console.log(NAME);
     return ControlSidebar;
+
   }(jQuery);
 
   /**
@@ -696,6 +697,7 @@
      * Constants
      * ====================================================
      */
+
     var NAME = 'Treeview';
     var DATA_KEY = 'lte.treeview';
     var EVENT_KEY = "." + DATA_KEY;
@@ -723,10 +725,11 @@
     var Default = {
       trigger: Selector.DATA_WIDGET + " " + Selector.LINK,
       animationSpeed: 300,
-      accordion: true,
+      accordion: false,
       expandSidebar: false,
       sidebarButtonSelector: '[data-widget="pushmenu"]'
     };
+
     /**
      * Class Definition
      * ====================================================
@@ -738,6 +741,8 @@
       function Treeview(element, config) {
         this._config = config;
         this._element = element;
+
+        this.init();
       } // Public
 
 
@@ -1796,18 +1801,19 @@
     return Toasts;
   }(jQuery);
 
-  exports.CardRefresh = CardRefresh;
-  exports.CardWidget = CardWidget;
-  exports.ControlSidebar = ControlSidebar;
-  exports.DirectChat = DirectChat;
-  exports.Dropdown = Dropdown;
-  exports.Layout = Layout;
-  exports.PushMenu = PushMenu;
-  exports.Toasts = Toasts;
-  exports.TodoList = TodoList;
-  exports.Treeview = Treeview;
 
-  Object.defineProperty(exports, '__esModule', { value: true });
+        exports.CardRefresh = CardRefresh;
+        exports.CardWidget = CardWidget;
+        exports.ControlSidebar = ControlSidebar;
+        exports.DirectChat = DirectChat;
+        exports.Dropdown = Dropdown;
+        exports.Layout = Layout;
+        exports.PushMenu = PushMenu;
+        exports.Toasts = Toasts;
+        exports.TodoList = TodoList;
+        exports.Treeview = Treeview;
+        Object.defineProperty(exports, '__esModule', { value: false });
 
 })));
+}
 //# sourceMappingURL=adminlte.js.map

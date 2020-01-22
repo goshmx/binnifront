@@ -1,0 +1,55 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Usuarios</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item active">Usuarios</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Listado de usuarios</h3>
+                        <div class="card-tools">
+                            <a href="#usuario/nuevo"  class="btn btn-tool btn-primary"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th style="width: 110px">Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each data}}
+                                <tr>
+                                    <td>{{id}}</td>
+                                    <td>{{fullName}}</td>
+                                    <td>{{emailAddress}}</td>
+                                    <td>{{rol.nombre}}</td>
+                                    <td>{{#ifeq id 1}}{{else}}<a href="#usuario/editar/{{id}}" class="btn btn-xs btn-primary">Editar</a> <a href="#" class="btn btn-xs btn-danger delete-btn set-url-config" url-index="api" attr-target="action" title="Rol" action="users/{{id}}" fn-success="myApp.routes.refresh();">Borrar</a>{{/ifeq}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
